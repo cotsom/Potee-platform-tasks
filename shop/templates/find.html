@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>secret shop</title>
+	<meta charset="utf-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Secret Shop</a>
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item">
+				<a class="nav-link" aria-current="page" href="/shop">Catalog</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="/inventory">Inventory</a>
+			  </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/check">find by transaction</a>
+        </li>
+			</ul>
+			<div class="d-flex">
+			  <h3 class="me-2 navbar-brand username">{{username}}</h3>
+			  <p class="me-2 navbar-brand">Balance:</p>
+			  <p class="me-2 navbar-brand">{{balance}}</p>
+			  <a href="/logout" class="me-2 nav-link">logout</a>
+			</div>
+		  </div>
+		</div>
+	</nav>
+    <div class="container">
+        Enter product tag to view the transaction
+        <form action="" method="POST">
+            <input type="text" name="transaction" placeholder="transaction id">
+            <input type="submit" value="find">
+        </form>
+        <ul class="list-group">
+            <li class="list-group-item">Product title: {{ product_name }}</li>
+            <li class="list-group-item">Product owner: {{ owner }}</li>
+            <li class="tag list-group-item">Product tag: {{ product_tag }}</li>
+            <li class="list-group-item">purchase status: {{ status }}</li>
+        </ul>
+    </div>
+      <footer class="py-3 my-4">
+		<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		</ul>
+		<p class="text-center text-muted">© 2022 Company, Inc</p>
+	  </footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous">
+	</script>
+</body>
+
+</html>

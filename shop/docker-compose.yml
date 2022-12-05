@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    environment:
+      - MONGO_USER=root
+      - MONGO_PASS=password
+      - PYTHONUNBUFFERED=1
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>secret shop</title>
+	<meta charset="utf-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Secret Shop</a>
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="/shop">Catalog</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/inventory">Inventory</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/check">find by transaction</a>
+			  </li>
+			</ul>
+			<div class="d-flex">
+			  <h3 class="me-2 navbar-brand username">{{username}}</h3>
+			  <p class="me-2 navbar-brand">Balance:</p>
+			  <p class="me-2 navbar-brand">{{balance}}</p>
+			  <a href="/logout" class="me-2 nav-link">logout</a>
+			</div>
+		  </div>
+		</div>
+	</nav>
+	<div class="d-flex p-2">
+		<div class="card d-flex p-2 mx-auto" style="width: 18rem;">
+			<img src="https://media2.giphy.com/media/Rl5kUmXI5dLkxWOJQ7/giphy.gif?cid=6c09b952c0dff17fc27a3669165e8db2a943393ea9774f61&rid=giphy.gif&ct=s" class="card-img-top">
+			<div class="card-body">
+				<h5 class="card-title">The Krysa</h5>
+				<p class="card-text">50$</p>
+				<form action="/shop" method="POST" >
+				<div class="form-group">
+					<input type="hidden" name="product-id" value="1">
+					<input type="submit" value="buy" class="btn btn-dark">
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="card d-flex p-2 mx-auto" style="width: 18rem;">
+			<img src="https://coub-attachments.akamaized.net/coub_storage/coub/simple/cw_timeline_pic/100c59f035c/5e749bd8e90d6c12a6f54/1473214000_image.jpg" class="card-img-top">
+			<div class="card-body">
+				<h5 class="card-title">R1CK</h5>
+				<p class="card-text">50$</p>
+				<form action="/shop" method="POST" >
+				<div class="form-group">
+					<input type="hidden" name="product-id" value="2">
+					<input type="submit" value="buy" class="btn btn-dark">
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="card d-flex p-2 mx-auto" style="width: 18rem;">
+			<img src="https://icons-for-free.com/iconfiles/png/512/flag-131982518756050978.png" class="card-img-top">
+			<div class="card-body">
+				<h5 class="card-title">flag</h5>
+				<p class="card-text">300$</p>
+				<form action="/shop" method="POST" >
+				<div class="form-group">
+					<input type="hidden" name="product-id" value="3">
+					<input type="submit" value="buy" class="btn btn-dark">
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	<footer class="py-3 my-4">
+		<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+		  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		</ul>
+		<p class="text-center text-muted">© 2022 Company, Inc</p>
+	  </footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous">
+	</script>
+</body>
+
+</html>

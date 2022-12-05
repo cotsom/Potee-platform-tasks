@@ -1,0 +1,4 @@
+flask
+pymongo
+redis
+Flask-Session
