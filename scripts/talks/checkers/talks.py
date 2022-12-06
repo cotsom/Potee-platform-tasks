@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 from potee import ServiceBase
 
-port = 8001
+port = 3000
 schema = "http"
 srv = ServiceBase()
 

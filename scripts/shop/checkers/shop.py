@@ -25,7 +25,7 @@ def login(host, flag):
 
     s = requests.Session()
     s.post(f"{schema}://{host}:{port}/",data={"login": "checker", "passwd": password, "action": "signup", "card": flag})
-    s.post(f"{schema}://{host}:{port}/",data={"login": "checker", "passwd": password, "action": "signin"})
+    r = s.post(f"{schema}://{host}:{port}/",data={"login": "checker", "passwd": password, "action": "signin", "card": flag})
     return s.cookies.get("session")
 
 @srv.get('auth')
@@ -47,6 +47,7 @@ def buy(host, flag):
     s.post(f"{schema}://{host}:{port}/",data={"login": "client", "passwd": password, "action": "signin"})
     r = s.post(f"http://{host}:{port}/approve?product_id=1", data={"buy": "yes", "tag": flag})
     payment_id = r.url.partition('=')[2]
+    s.get(f"http://{host}:{port}/delete")
     return f"{s.cookies.get('session')}:{payment_id}"
 
 @srv.get('buy')
@@ -87,7 +88,6 @@ def exploit(host):
     r = session.get(f"http://{host}:{port}/inventory")
     soup = BeautifulSoup(r.text, "html.parser")
     req = soup.find_all("a", class_="product")[1]
-    print(req.text)
     session.get(f"http://{host}:{port}/delete")
     
     if req.text == 'flag':

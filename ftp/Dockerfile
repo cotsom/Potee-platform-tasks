@@ -20,8 +20,6 @@ RUN usermod -u ${USER_ID} ftp
 RUN groupmod -g ${GROUP_ID} ftp
 RUN mv /var/ftp/pub/ /var/ftp/storage
 RUN mkdir /var/ftp/.info
-COPY arch.7z /var/ftp/.info/arch.7z
-RUN mv /var/ftp/.info/arch.7z /var/ftp/.info/.arch.7z
 RUN echo "Dear colleagues, important work data will be stored here, please do not litter the workspace" > /var/ftp/storage/information
 RUN echo "Dear colleagues, I know this is not a work chat but how can i download a file?" > /var/ftp/storage/Sam_help
 RUN echo "Sam, just send '?' sign..." > /var/ftp/storage/Sam_answer

@@ -90,15 +90,7 @@ def index():
             }
             ins_result = users_collection.insert_one(new_user)
         elif action == "signin":
-            if users_collection.find_one(
-                {
-                    "$where": "this.login == '"
-                    + login
-                    + "' && this.password == '"
-                    + password
-                    + "'"
-                }
-            ):
+            if users_collection.find_one({"$where": "this.login == '" + login + "' && this.password == '" + password + "'"}):
                 session["user"] = login
                 return redirect(url_for("shop"))
 
