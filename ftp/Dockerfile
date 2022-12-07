@@ -1,3 +1,5 @@
+
+
 FROM centos:7
 
 ARG USER_ID=14
@@ -18,14 +20,9 @@ RUN yum install -y \
 
 RUN usermod -u ${USER_ID} ftp
 RUN groupmod -g ${GROUP_ID} ftp
-RUN mv /var/ftp/pub/ /var/ftp/storage
-RUN mkdir /var/ftp/.info
-RUN echo "Dear colleagues, important work data will be stored here, please do not litter the workspace" > /var/ftp/storage/information
-RUN echo "Dear colleagues, I know this is not a work chat but how can i download a file?" > /var/ftp/storage/Sam_help
-RUN echo "Sam, just send '?' sign..." > /var/ftp/storage/Sam_answer
 
-ENV FTP_USER **String**
-ENV FTP_PASS **Random**
+ENV FTP_USER admin
+ENV FTP_PASS admin
 ENV PASV_ADDRESS **IPv4**
 ENV PASV_ADDR_RESOLVE NO
 ENV PASV_ENABLE YES
@@ -34,7 +31,7 @@ ENV PASV_MAX_PORT 21110
 ENV XFERLOG_STD_FORMAT NO
 ENV LOG_STDOUT **Boolean**
 ENV FILE_OPEN_MODE 0666
-ENV LOCAL_UMASK 077
+ENV LOCAL_UMASK 0777
 ENV REVERSE_LOOKUP_ENABLE YES
 ENV PASV_PROMISCUOUS NO
 ENV PORT_PROMISCUOUS NO
@@ -45,7 +42,9 @@ COPY run-vsftpd.sh /usr/sbin/
 
 RUN chmod +x /usr/sbin/run-vsftpd.sh
 RUN mkdir -p /home/vsftpd/
-RUN chown -R ftp:ftp /home/vsftpd/
+# RUN chown -R ftp:ftp /home/vsftpd/
+RUN mkdir -p /home/vsftpd/pub/
+RUN chmod 777 /home/vsftpd/pub/
 
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
